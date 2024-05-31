@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="acceuil.css">
+  <link rel="stylesheet" href=""https://unpkg.com/boxicons@latest/css/boxicons.min.css>
+  <link href="https://cdn.jsdelivr.net/npm/remixion@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font+Awesome">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-oXw5vOVaPvfVCIz6B4yLca0ThQEXsaRjzb5OMfFgFSJGgiFGtUgq3+Xzp2Fp0Dl/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- External CSS for styling -->
+</head>
+<style type="text/css">
+    :root {
+        --background-gradient: linear-gradient(to right, #0B1480, #0B1480);
+    }
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+
+header{
+  position: absolute;
+  right: 0;
+  bottom: 600px;
+  z-index: 1000;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 10%;
+    background: linear-gradient(to top, #040A4C, #0B1480);
+
+    box-shadow: 0 1px 6px 0 rgb(32 33 56 / 5%);
+}
+body{
+    top:20px;
+    background: var(--background-gradient);
+}
+
+header img{
+  width:15%;
+}
+
+.logo{
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+}
+    .navlist {
+        display: flex;
+        align-items: center; /* Align items vertically */
+    }
+
+    .navlist li {
+        margin-left: 10px; /* Adjust spacing between list items */
+    }
+
+    .navlist img {
+        width: 30px; /* Adjust the width of the image */
+        height: auto;
+        border-radius: 15px;/* Maintain aspect ratio */
+    }
+
+    .navlist a {
+        color: white;
+        padding: 20px;
+        font-size: 15px;
+        font-weight: 600;
+        border-bottom: 2px;
+        transition: all .55s ease;
+    }
+
+
+.navlist a:hover{
+  border-bottom: 2px solid white;
+}
+
+#menu-icon{
+  color: white;
+  font-size: 35px;
+  z-index: 10001;
+  cursor: pointer;
+  display: none;
+}
+.hero{
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+    background: var(--background-gradient);
+    position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 4fr);
+  align-items: center;
+  gap: 2rem;
+}
+.hero2{
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+    background: var(--background-gradient);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  gap: 2rem;
+}
+
+section{
+  padding: 0 10%;
+}
+
+
+.hero-img{
+  background-image: url('path/to/your/image.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+    .hero-img img {
+      animation: pulse 4s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+.merged-img {
+  position: all;
+  bottom: 60;
+  left: 0;
+}
+.hero-text h1{
+
+}
+.hero-text p{
+  font-family: 'Rubik Doodle Shadow';
+  font-size: 15px;
+  line-height: 1;
+  color: white;
+  margin: 0 0 45px;
+  line-height: 1.5;
+}
+.hero-text a{
+  display: inline-block;
+  color: white;
+  border: 1px solid transparent;
+  padding: 12px 30px;
+  line-height: 1.4;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease;
+    letter-spacing: 2px;
+}
+
+.hero-text{
+  display: inline-block;
+  border: 1px solid transparent;
+    padding: 20px;
+    line-height: 1.4;
+    font-weight: 500;
+    border-radius: 30px;
+    transition: all .55s ease;
+}
+.hero-text h1{
+    margin-bottom: 20px;
+      color: black;
+      font-weight: 700;
+        font-family: Georgia, serif;
+  font-size: 60px;
+  line-height: 1;
+  margin: 0 0 45px;
+}
+
+.hero-text a:hover{
+  background: transparent;
+  border: 1px solid white;
+  transform: translateX(8p);
+}
+
+    #prod1 {
+      text-align: center;
+      padding: 1px;
+      margin-left: -20px;
+    }
+    #prod1:hover{
+        transform: scale(1.2);
+    }
+    .section-p1 {
+      background-color: transparent;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .pro-container {
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+      margin: 1px;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-radius: 20px;
+    }
+    .pro {
+    background-color: white;
+      padding: 20px;
+      border-radius: 19px;
+      box-shadow: 5 4px 8px rgba(0, 0, 0, 0.1);
+      width: 250px;
+    }
+    .pro img {
+      width: 100%;
+      border-radius: 8px;
+     }
+         .pro img:hover {
+      width: 100%;
+      border-radius: 8px;
+ animation: pulse 4s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    .des {
+      margin-top: 10px;
+      text-align: left;
+    }
+    .des span {
+      color: #888;
+      font-size: 14px;
+     
+    }
+    .des h5 {
+      margin: 5px 0;
+      font-size: 18px;
+      text-align: start;
+    }
+    .star {
+      color: #f8ce0b;
+      font-size: 24px;
+      display: flex;
+    }
+    .rating input {
+    display: none;
+}
+
+/* Style for the star labels */
+.rating label {
+    font-size: 19px; /* Adjust the size of the stars */
+    color: #ccc; /* Default color for empty stars */
+    cursor: pointer;
+    padding-right: 9px; /* Adjust space between stars */
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* Change color of selected stars */
+.rating input:checked ~ label {
+    color: #ffcc00;
+}
+.btn{
+  display: inline-block;
+  padding: 14px 42px;
+  color: black;
+  border: 2px solid transparent;
+  transition: all .6s;
+  font-weight: 500;
+  font-size:15px;
+}
+.btn:hover{
+  transform: scale(0.9) translateY(-6px);
+  border-radius: 2px solid black;
+  background: transparent;
+
+}
+.fa-sharp.fa-solid.fa-cart-plus{
+  color: white;
+  background-color: #2ecc71;
+  border-radius: 50px;
+  width: 25px;
+  line-height: 23px;
+  height: 22px;
+  border: 1px solid;
+  position: relative;
+  left: 190px;
+  top: 23px;
+}
+h3{
+ text-align: left;
+  font-size: 15px;
+}
+.indicator{
+      width: 100%;
+      height: 100px;
+      border-bottom: 2px solid #e5e5e5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .indicator ul li{
+      list-style: none;
+      padding: 20px;
+      margin: 10px;
+      float: left;
+      font-size: 20px;
+      border-radius: 35px;
+      color: white;
+
+    }
+    .indicator li{
+        color: white;
+        text-decoration: none;
+    }
+    .indicator .active{
+        color: white;
+        background-color: #3498db;
+        font-weight: bold;
+        border: 3px solid white;
+        border-radius: 90%;
+        padding: 10px;
+    }
+    .indicator a{
+      color: white;
+      text-decoration: none;
+    }
+    .indicator .active{
+      color: white;
+    }
+    .indicator .active a{
+      color: white;
+      background-color: #3498db;
+      font-weight: bold;
+      border: 3px solid white;
+      border-radius: 90%;
+      padding: 10px;
+    }
+    #star1{
+    color: yellow;
+    }
+    .fa-arrow-right-from-bracket{
+        color: white;
+    }
+    .fa-user{
+        color: white;
+    }
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+    }
+    .wrapper {
+        position: relative;
+        width: 200px;
+        height: 200px;
+    }
+    .wrapper img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+    }
+    .panel {
+        display: none; /* Initially hide the panel */
+        position: absolute;
+        top: calc(100% + 5px);
+        right: 200px;
+        background-color: #f9f9f9;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 10px;
+        z-index: 1;
+    }
+
+    .panel p {
+        margin: 5px 0;
+    }
+
+    .panel button {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .low-quantity {
+        background-color: red;
+        color: white;
+    }
+</style>
+<body>
+  <header>
+    <img class="logo" src="/logo.png">
+<p></p>
+    <ul class="navlist">
+      <li><a href="">Catalog</a></li>
+        <form th:action="@{/panier/getpanier}">
+            <input name="username" type="hidden" th:value="${session.authenticatedUsername}">
+      <li><button>My Basket</button></li>
+        </form>
+      <li><a href="mydeliveries.html">My Pending deliveries</a></li>
+      <li><a href="mycomments.html">My comments</a></li>
+      <li><a href="mycomplaints.html">My complaints</a></li>
+        <li><img alt="hh" th:src="${session.authenticatedPhoto}" onclick="togglePanel()"></li>
+        <div id="panel" class="panel">
+            <p th:text="${session.authenticatedUsername}"></p>
+            <form th:action="@{/comptes/information}">
+                <input type="hidden" name="username" th:value="${session.authenticatedUsername}">
+            <button style="background-color: blue">Account information</button>
+            </form>
+            <button><a href="/log/login">Log out</a></button>
+        </div>
+      <li><i class="fa-solid fa-arrow-right-from-bracket"></i></li>
+     
+    </ul>
+
+    <div class="bx bx-menu" id="menu-icon"></div>
+  </header>
+<br><br><br><br><br>
+      <section class="hero">
+    <div class="hero-text">
+ <h6 style="color: white">New arrivals</h6>
+
+ <h1 style="color: white">New arrivals <br> Ready to Elevate Your Experience.</h1>
+ <p style="font-family: arial"> 
+Discover our freshest selection of masks, crafted to combine both style and functionality seamlessly. Embrace comfort and protection with our latest arrivals, designed with precision and care. From chic designs to timeless classics, our new masks cater to every taste and need. Elevate your everyday look while staying safe with our innovative collection. Shop now and stay ahead with the latest trends in mask fashion.</p>
+        <button  class="btn" onclick="scrollToSection()">Shop now -></button>
+    </div>
+
+<div class="hero-img">
+
+        <img  src="/colors.png" alt="Image 2">
+
+  </div>
+          <div>
+              <ul class="indicator">
+                  <li data-filter="all" class="active">All</li>
+                  <li th:each="categorie : ${allc}" th:text="${categorie.catname}" th:data-filter="${categorie.catname}"></li>
+              </ul>
+          </div>
+  </section>
+  <section class="hero2">
+
+      <div class="product-grid">
+          <section id="prod1" class="section-p1" th:each="product : ${all}" th:data-category="${product.categorie?.catname}">
+              <form th:action="@{/products/viewdetails}">
+                  <div class="pro-container">
+                      <div class="pro" th:classappend="${product.quantity == 0} ? 'low-quantity' : ''">
+                          <div class="container">
+                              <div class="wrapper">
+                                  <img th:src="${product.photo}" alt="Product Photo"/>
+                                  <img src="/soldout.png" th:if="${product.quantity == 0}" class="soldout">
+                              </div>
+                          </div>
+                          <div class="des">
+                              <input type="hidden" name="id" th:value="${product.id}" />
+                              <span th:text="${product.categorie?.catname}"></span>
+                              <h5 th:text="${product.label}"></h5>
+                              <span th:text="'Color:'+${product.color}"></span><br>
+                              <span th:text="'Remaining stock:'+${product.quantity}"></span>
+
+                              <div>
+                                  <div style="color: yellow">
+                                      <!-- Loop to generate solid star icons based on product rating -->
+                                      <span style="color: #ffcc00; font-weight: bold; font-size: 20px" th:each="i : ${#numbers.sequence(1, 5)}" th:if="${i le product.rating}">&#9733;&nbsp;</span>
+                                  </div>
+                              </div>
+                              <button type="submit" class="fa-sharp fa-solid fa-cart-plus" th:if="${product.quantity > 0}"></button>
+                              <a class="fa-sharp fa-solid fa-cart-plus" th:if="${product.quantity == 0}"></a>
+                              <h3 th:text="${product.price}"></h3>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+          </section>
+      </div>
+
+
+  </section>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+  const indicatorItems = document.querySelectorAll(".indicator li");
+
+  indicatorItems.forEach(function(item) {
+    item.addEventListener("click", function() {
+      // Remove the 'active' class from all items
+      indicatorItems.forEach(function(item) {
+        item.classList.remove("active");
+      });
+
+      // Add the 'active' class to the clicked item
+      this.classList.add("active");
+    });
+  });
+});
+</script>
+<script>
+    function togglePanel() {
+        var panel = document.getElementById("panel");
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
+</script>
+  <script>
+      function scrollToSection() {
+          var section = document.querySelector('.hero2');
+          section.scrollIntoView({ behavior: 'smooth' });
+      }
+  </script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+      var filterButtons = document.querySelectorAll('.indicator li');
+
+      filterButtons.forEach(function(button) {
+          button.addEventListener('click', function() {
+              filterButtons.forEach(function(btn) {
+                  btn.classList.remove('active');
+              });
+              button.classList.add('active');
+
+              var selectedCategory = button.getAttribute('data-filter');
+
+              var products = document.querySelectorAll('.section-p1');
+              products.forEach(function(product) {
+                  var category = product.getAttribute('data-category');
+                  if (selectedCategory === 'all' || category === selectedCategory) {
+                      product.style.display = 'block';
+                  } else {
+                      product.style.display = 'none';
+                  }
+              });
+          });
+      });
+  });
+  </script>
+</body>
+</html>

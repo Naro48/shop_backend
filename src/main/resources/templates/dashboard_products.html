@@ -1,0 +1,1013 @@
+<span style="font-family: verdana, geneva, sans-serif;"><!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard | Products</title>
+  <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style type="text/css">
+  <span style="font-family: verdana, geneva, sans-serif;">
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+  *{
+      margin: 0;
+      padding: 0;
+      outline: none;
+      border: none;
+      text-decoration: none;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+  }
+  body{
+      background: white;
+      background-image: url('/ecommerce.jpg');
+  }
+  nav{
+      position: sticky;
+      top: 0;
+      bottom: 0;
+      height: 100vh;
+      left: 0;
+      width: 90px;
+      /* width: 280px; */
+      background: linear-gradient(to bottom left, red, white);
+      overflow: hidden;
+      transition: 1s;
+  }
+  nav:hover{
+      width: 280px;
+      transition: 1s;
+  }
+
+  .logo img{
+      width: 80px;
+      height: 80px;
+  }
+  .logo span{
+      font-weight: bold;
+      padding-left: 15px;
+      font-size: 18px;
+      text-transform: uppercase;
+  }
+  a{
+      position: relative;
+      width: 280px;
+      font-size: 14px;
+      color: rgb(85, 83, 83);
+      display: table;
+      padding: 10px;
+  }
+  nav .fas{
+      position: relative;
+      width: 70px;
+      height: 30px;
+      top: 20px;
+      font-size: 15px;
+      text-align: center;
+      color: white;
+  }
+  .nav-item{
+      position: relative;
+      top: 12px;
+      margin-left: 10px;
+      color: white;
+  }
+  .nav-item:hover{
+      position: relative;
+      top: 12px;
+      margin-left: 10px;
+      color: red;
+  }
+  a:hover{
+      background: red;
+      color: white;
+  }
+  a:hover i{
+      color: white;
+      transition: 0.5s;
+  }
+
+  .logout{
+      position: absolute;
+      bottom: 0;
+  }
+
+  .container{
+      display: flex;
+      color: black;
+
+  }
+  .container a{
+      right: 40px;
+  }
+
+  /* MAin Section */
+  .main{
+      position: relative;
+      padding: 20px;
+      width: 100%;
+  }
+  .main-top{
+      display: flex;
+      width: 100%;
+  }
+  .main-top i{
+      position: absolute;
+      right: 0;
+      margin: 10px 30px;
+      color: rgb(110, 109, 109);
+      cursor: pointer;
+  }
+  .main .addprod{
+      display: flex;
+      width: 100%;
+  }
+
+  .main2{
+      position: relative;
+      padding: 5px;
+      width: 100%;
+  }
+  .main-top{
+      display: flex;
+      width: 100%;
+  }
+  .main-top i{
+      position: absolute;
+      right: 0;
+      margin: 10px 30px;
+      color: rgb(110, 109, 109);
+      cursor: pointer;
+  }
+  .main .addprod{
+      display: flex;
+      width: 100%;
+  }
+
+  .addprod .card{
+      width: 79%;
+      margin: 10px;
+      background: #fff;
+      text-align: left;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+      background-image: url('/addproduct.jpg');
+      height: 445px;
+  }
+  .addcat .card{
+      width: 79%;
+      margin: 10px;
+      background: #fff;
+      text-align: left;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+      background-image: url('/addproduct.jpg');
+      height: 445px;
+  }
+  .addprod .card2{
+      width: 39%;
+      margin: 10px;
+      background: #fff;
+      text-align: left;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+      background-image: url('/furnitures.jpg');
+      height: 350px;
+  }
+  .addprod .card img{
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+  }
+  .addprod button{
+
+  }
+  .addprod .card h4{
+      text-transform: uppercase;
+  }
+  .addprod .card p{
+      font-size: 12px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+  }
+  .addprod table{
+      margin: auto;
+  }
+  .addprod .per span{
+      padding: 5px;
+      border-radius: 10px;
+      background: rgb(223, 223, 223);
+  }
+
+  .table2 td input, select, textarea{
+      width:200px;
+      padding: 15px;
+      margin:30px;
+      border-radius: 10px;
+      border:3px solid red;
+  }
+  .table2 button{
+      width:200px;
+      padding: 10px;
+      margin:30px;
+      border-radius: 10px;
+      border:3px solid white;
+      color: white;
+      font-weight: bold;
+      background-color: red;
+      position: relative;
+      left: 140px;
+  }
+  .table2 td i{
+      right: 20px;
+  }
+
+  .addprod td{
+      font-size: 14px;
+      padding-right: 15px;
+  }
+  .addprod .card button{
+         width: 540px;
+         font-weight: bold;
+         margin-top: 8px;
+         padding: 9px;
+         cursor: pointer;
+         border-radius: 10px;
+         background: white;
+         color: red;
+         border: 2px solid red;
+     }
+  .addprod .card button:hover{
+      width: 540px;
+      margin-top: 8px;
+      padding: 9px;
+      cursor: pointer;
+      border-radius: 10px;
+      background: red;
+      color: white;
+      border: 1px solid red;
+  }
+
+  .attendance{
+      margin-top: 20px;
+      text-transform: capitalize;
+  }
+  .attendance-list{
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  .attendance-list2{
+      width: 25%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  .table{
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 15px;
+      min-width: 100%;
+      overflow: hidden;
+      border-radius: 5px 5px 0 0;
+  }
+  input {
+      width: 350px;
+  }
+  table thead tr{
+      color: #fff;
+      background: #FF0000
+  ;
+      text-align: left;
+      font-weight: bold;
+  }
+  .table th,
+  .table td{
+      padding: 12px 15px;
+  }
+  .table tbody tr{
+      border-bottom: 1px solid red;
+  }
+  .table tbody tr:nth-of-type(odd){
+      background: #f3f3f3;
+  }
+  .table tbody tr:last-of-type{
+      border-bottom: 2px solid red;
+  }
+  .table button{
+      padding: 6px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      background: red;
+      color: white;
+      border: 1px solid red;
+      font-weight: bold;
+  }
+  .addcat button{
+      width:200px;
+      padding: 15px;
+      margin:30px;
+      border-radius: 10px;
+      border:3px solid red;
+  }
+  .table button:hover{
+      background: red;
+      color: #fff;
+      transition: 0.5rem;
+  }
+  .fa-solid.fa-phone {
+      right: 20px;
+  }
+  .main .users{
+      display: flex;
+      width: 100%;
+  }
+
+  .users .card{
+      width: 50%;
+      margin: 10px;
+      height: 100px;
+      background: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+      border-left: 5px solid #4169E1;
+  }
+  .users .card h1,h4{
+      text-align: left;
+  }
+
+  .users .card:hover{
+      background-color: red;
+      color: white;
+  }
+  .users .card img{
+      width: 120px;
+      height: 100px;
+  }
+
+  .users .card p{
+      font-size: 12px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+  }
+  .adding{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+  }
+  .users table{
+      margin:  auto;
+  }
+  .users .per span{
+      padding: 5px;
+      border-radius: 10px;
+      background: rgb(223, 223, 223);
+  }
+  .users td{
+      font-size: 14px;
+      padding-right: 15px;
+  }
+  .users .card button{
+      width: 100%;
+      margin-top: 8px;
+      padding: 7px;
+      cursor: pointer;
+      border-radius: 10px;
+      background: red;
+      color: #fff;
+      border: 1px solid red;
+  }
+  .mysection{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+  }
+  .productRow img{
+      width:50px;
+      height: 50px;
+  }
+  .divide{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+  }
+  .navlist img {
+      width: 30px; /* Adjust the width of the image */
+      height: auto;
+      border-radius: 15px;/* Maintain aspect ratio */
+  }
+  .panel {
+      display: none; /* Initially hide the panel */
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 100px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 10px;
+      z-index: 1;
+  }
+  .panel p {
+      margin: 5px 0;
+  }
+
+  .panel button {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      margin: 4px 2px;
+      cursor: pointer;
+  }
+</style>
+<body>
+                  <div id="panel" class="panel">
+            <p th:text="${session.authenticatedUsername}"></p>
+            <form th:action="@{/comptes/information}">
+                <input type="hidden" name="username" th:value="${session.authenticatedUsername}">
+            <button style="background-color: blue">Account information</button>
+            </form>
+            <button><a href="/log/login">Log out</a></button>
+        </div>
+  <div class="container">
+    <nav class="navlist">
+<ul>
+        <a href="#" class="logo">
+         <img th:src="${session.authenticatedPhoto}" onclick="togglePanel()">
+               </a>
+            <a href="/products/products">
+          <i class="fas fa-chart-bar"></i>
+          <span class="nav-item">Products</span>
+        </a><br>
+                <a href="/categories/categories">
+          <i class="fas fa-sharp fa-regular fa-list"></i>
+          <span class="nav-item">Categories</span>
+        </a><br>
+        <a href="/products/analytics">
+            <i class="fas fa-solid fa-chart-simple"></i>
+          <span class="nav-item">Analytics</span>
+        </a><br>
+               <a href="/comptes/count">
+          <i class="fas fa-solid fa-users"></i>
+          <span class="nav-item">Accounts</span>
+        </a><br>
+            <a href="/commande/commande">
+                  <i class="fas fa-sharp fa-solid fa-envelope"></i>
+          <span class="nav-item">Commands</span>
+        </a><br>
+            <a href="/reclamation/count">
+           <i class="fas fa-solid fa-face-angry"></i>
+          <span class="nav-item">Complaints</span>
+        </a><br>
+            <a href="/products/analytics">
+            <i class="fas fa-solid fa-comments"></i>
+          <span class="nav-item">Comments</span>
+        </a><br>
+        <a href="">
+                  <i class="fas fa-sharp fa-solid fa-envelope"></i>
+          <span class="nav-item">Contact</span>
+        </a>
+      </ul>
+    </nav>
+
+
+    <section class="main">
+        <h2 style="color: white">PRODUCTS PAGE</h2> <h4 style="color: white">Display,add and delete products easily</h4>
+              <div class="users">
+        <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${productCount}"></spanth:text></span></h1>
+          <h4>Number of products</h4>
+        </div>
+        <div class="second">
+          <img src="/dollars.png">
+        </div>
+      </section>
+    </div>
+                          <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${archi}"></span></h1>
+          <h4>Architecture products</h4>
+        </div>
+        <div class="second">
+          <img src="/archii.png">
+        </div>
+      </section>
+    </div>
+                          <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${aero}"></span></h1>
+          <h4>Aerospace products</h4>
+        </div>
+        <div class="second">
+          <img src="/aero.png">
+        </div>
+      </section>
+    </div>
+                          <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${cs}"></span></h1>
+          <h4>CS products</h4>
+        </div>
+        <div class="second">
+          <img src="/cs.png">
+        </div>
+      </section>
+    </div>
+              </div>
+
+                      <div class="users">
+        <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${dentistry}"></span></h1>
+          <h4>Dentistry products</h4>
+        </div>
+        <div class="second">
+          <img src="/dentistry.png">
+        </div>
+      </section>
+    </div>
+                          <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${medecine}"></span></h1>
+          <h4>Medecine products</h4>
+        </div>
+        <div class="second">
+          <img src="/medecine.png">
+        </div>
+      </section>
+    </div>
+                          <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${energie}"></span></h1>
+          <h4>Energy products</h4>
+        </div>
+        <div class="second">
+          <img src="/energy.png">
+        </div>
+      </section>
+    </div>
+                          <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${auto}"></span></h1>
+          <h4>Automobile products</h4>
+        </div>
+        <div class="second">
+          <img src="/autoo.png">
+        </div>
+      </section>
+    </div>
+              </div>
+
+      <section class="attendance">
+     <br>
+<div>
+<div style="display: flex">
+    <input style="border-color: red; border-radius: 3px;padding: 9px" type="text" id="searchInput" placeholder="Search by Label..." onkeyup="searchByLabel()">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+    <input style="border-color: red; border-radius: 3px;padding: 9px" type="text" id="searchInput2" placeholder="Search by Category..." onkeyup="searchByCateg()">
+</div>
+<div class="attendance-list">
+    <h1>List of products</h1>
+    <form id="modifyForm" th:action="@{/products/modify}" method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Label</th>
+                <th>Description</th>
+                <th>Stock</th>
+                <th>Price</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Category</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="produit : ${all}" class="productRow">
+                <td th:text="${produit.id}"></td>
+                <td><input type="text" name="label" th:value="${produit.label}" /></td>
+                <td><input type="text" name="description" th:value="${produit.description}" /></td>
+                <td><input type="number" name="stock" th:value="${produit.quantity}" /></td>
+                <td><input type="number" name="price" step="0.01" th:value="${produit.price}" /></td>
+                <td><input type="text" name="color" th:value="${produit.color}" /></td>
+                <td><input type="text" name="size" th:value="${produit.size}" /></td>
+                <td><input type="text" name="category" th:value="${produit.categorie?.catname}" /></td>
+                <td><img th:src="${produit.photo}" /></td>
+                <input type="hidden" id="productId" name="id" th:value="${produit.id}"/>
+                <td><button type="submit">Modify</button></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+</div>
+    <section class="main">
+      <div class="main-top">
+        &nbsp<h1 style="color: white;">ADD PRODUCTS</h1>
+      </div>
+        <section class="adding">
+      <div class="addprod">
+        <div class="card">
+          <div class="per">
+<form th:action="@{/products/addProduct}" method="post">
+    <table class="table2">
+        <tr>
+            <td><input type="text" placeholder="Label" name="label" required></td>
+            <td><input type="number" placeholder="Price" name="price" required></td>
+        </tr>
+        <tr>
+            <td><input type="text" placeholder="Color" name="color"></td>
+            <td><input type="text" name="photo" placeholder="Image link"></td>
+        </tr>
+        <tr>
+            <td>
+                <select name="size">
+                    <option value="" disabled selected>Size</option>
+                    <option value="None">None</option>
+                    <option value="M">M</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+            </td>
+            <td>
+                <select name="categoryId">
+                    <option value="" disabled selected>Category</option>
+                    <option th:each="category : ${allc}" th:value="${category.id}" th:text="${category.catname}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="number" placeholder="Stock" name="stock" required></td>
+            <td><textarea placeholder="Description" cols="1" rows="1" name="description" required></textarea></td>
+        </tr>
+    </table>
+    <button>Add Product</button>
+</form>
+
+          </div>
+        </div>
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+        </div>
+</section>
+    </section>
+
+    </section>
+  </div>
+<script th:inline="javascript">
+  function showImage(imageUrl) {
+      // Create a new window to display the image
+      var imageWindow = window.open("", "_blank");
+      // Set the HTML content of the window to display the image
+      imageWindow.document.body.innerHTML = "<img src='" + imageUrl + "' alt='Image'>";
+  }
+</script>
+
+<script>
+    function modifyRow(button) {
+        var row = button.parentNode.parentNode;
+        var cells = row.getElementsByTagName("td");
+        for (var i = 1; i < cells.length - 1; i++) {
+            var input = document.createElement("input");
+            input.type = "text";
+            input.value = cells[i].innerText.trim();
+            cells[i].innerHTML = "";
+            cells[i].appendChild(input);
+        }
+        button.style.display = "none";
+    }
+
+    function saveChanges(button) {
+        var row = button.parentNode.parentNode;
+        var inputs = row.getElementsByTagName("input");
+        var formData = new FormData();
+        for (var i = 0; i < inputs.length; i++) {
+            formData.append(inputs[i].name, inputs[i].value);
+        }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/products/modify", true);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                console.log("Product modified successfully.");
+                window.location.reload();
+            } else {
+                console.log("Failed to modify product.");
+            }
+        };
+        xhr.send(formData);
+    }
+
+    function cancelChanges(button) {
+        var row = button.parentNode.parentNode;
+        var inputs = row.getElementsByTagName("input");
+        var cells = row.getElementsByTagName("td");
+        for (var i = 1; i < cells.length - 1; i++) {
+            cells[i].innerHTML = inputs[i - 1].value;
+        }
+        var modifyButton = row.querySelector("button[type='button']");
+        modifyButton.style.display = "block";
+    }
+</script>
+<script>
+    function applyCategoryFilter() {
+        var select = document.getElementById("categorySelect");
+        var categoryId = select.value;
+        var rows = document.getElementsByClassName("productRow");
+
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var categoryCell = row.getElementsByTagName("td")[5]; // Assuming Category column is at index 5
+            var category = categoryCell.textContent.trim();
+
+            if (categoryId === "" || categoryId === category) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        }
+    }
+</script>
+<script>
+    var priceSortDir = "asc";
+    function sortByPrice() {
+        var table, rows, switching, i, x, y, shouldSwitch;
+        table = document.querySelector(".table");
+        switching = true;
+        // Set the sorting direction:
+        var dir = priceSortDir;
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+            // Loop through all table rows (except the first, which contains table headers):
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                // Get the two elements you want to compare, one from current row and one from the next:
+                x = rows[i].getElementsByTagName("TD")[4]; // Price column index is 4
+                y = rows[i + 1].getElementsByTagName("TD")[4];
+                // Check if the two rows should switch place, based on the direction, asc or desc:
+                if (dir === "asc") {
+                    if (parseFloat(x.innerText) > parseFloat(y.innerText)) {
+                        shouldSwitch= true;
+                        break;
+                    }
+                } else if (dir === "desc") {
+                    if (parseFloat(x.innerText) < parseFloat(y.innerText)) {
+                        shouldSwitch= true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                // If a switch has been marked, make the switch and mark that a switch has been done:
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+        // Reverse the direction for next sorting iteration:
+        priceSortDir = (dir === "asc") ? "desc" : "asc";
+    }
+</script>
+<script>
+    var stockSortDir = "asc";
+    function sortByStock() {
+        var table, rows, switching, i, x, y, shouldSwitch;
+        table = document.querySelector(".table");
+        switching = true;
+        // Set the sorting direction:
+        var dir = stockSortDir;
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+            // Loop through all table rows (except the first, which contains table headers):
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                // Get the two elements you want to compare, one from current row and one from the next:
+                x = rows[i].getElementsByTagName("TD")[3]; // Stock column index is 3
+                y = rows[i + 1].getElementsByTagName("TD")[3];
+                // Check if the two rows should switch place, based on the direction, asc or desc:
+                if (dir === "asc") {
+                    if (parseFloat(x.innerText) > parseFloat(y.innerText)) {
+                        shouldSwitch= true;
+                        break;
+                    }
+                } else if (dir === "desc") {
+                    if (parseFloat(x.innerText) < parseFloat(y.innerText)) {
+                        shouldSwitch= true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                // If a switch has been marked, make the switch and mark that a switch has been done:
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+        // Reverse the direction for next sorting iteration:
+        stockSortDir = (dir === "asc") ? "desc" : "asc";
+    }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      // Apply category filter when the select dropdown changes
+      document.getElementById('categorySelect').addEventListener('change', function() {
+          applyCategoryFilter();
+      });
+
+      // Apply label search when typing in the search input
+      document.getElementById('searchInput').addEventListener('keyup', function() {
+          searchByLabel();
+      });
+  });
+
+  function applyCategoryFilter() {
+      var selectedCategory = document.getElementById('categorySelect').value;
+      var rows = document.querySelectorAll('.productRow');
+
+      rows.forEach(function(row) {
+          var category = row.querySelector('td:nth-child(8)').textContent.trim(); // Assuming 8th column is category
+          if (selectedCategory === '' || category === selectedCategory) {
+              row.style.display = '';
+          } else {
+              row.style.display = 'none';
+          }
+      });
+  }
+
+  function searchByLabel() {
+      var input = document.getElementById('searchInput').value.toLowerCase();
+      var rows = document.querySelectorAll('.productRow');
+
+      rows.forEach(function(row) {
+          var label = row.querySelector('td:nth-child(2)').textContent.toLowerCase(); // Assuming 2nd column is label
+          if (label.includes(input)) {
+              row.style.display = '';
+          } else {
+              row.style.display = 'none';
+          }
+      });
+  }
+</script>
+<script>
+    function searchByLabel() {
+        // Récupérer la valeur entrée par l'utilisateur dans le champ de recherche
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.querySelector(".table");
+        tr = table.getElementsByTagName("tr");
+
+        // Parcourir toutes les lignes du tableau et masquer celles qui ne correspondent pas à la recherche
+        for (i = 1; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1]; // La colonne du libellé est la deuxième (index 1)
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+    function searchByCateg() {
+        // Récupérer la valeur entrée par l'utilisateur dans le champ de recherche
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput2");
+        filter = input.value.toUpperCase();
+        table = document.querySelector(".table");
+        tr = table.getElementsByTagName("tr");
+
+        // Parcourir toutes les lignes du tableau et masquer celles qui ne correspondent pas à la recherche
+        for (i = 1; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[7]; // La colonne du libellé est la deuxième (index 1)
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+    function fillFormFields(button) {
+        var row = button.parentNode.parentNode;
+        var cells = row.getElementsByTagName("td");
+        var id = row.querySelector("input[name='id']").value;
+
+        document.getElementById("productId").value = id;
+
+        for (var i = 1; i < cells.length - 1; i++) {
+            var input = document.createElement("input");
+            input.type = "text";
+            input.name = cells[i].parentNode.getElementsByTagName("th")[i].textContent.toLowerCase();
+            input.value = cells[i].innerText.trim();
+            cells[i].innerHTML = "";
+            cells[i].appendChild(input);
+        }
+
+        var modifyButton = row.querySelector("button[type='button']");
+        modifyButton.style.display = "none";
+    }
+</script>
+<script>
+  const deleteButton = document.getElementById('deleteButton');
+  const confirmationPanel = document.getElementById('confirmationPanel');
+  const confirmDeleteButton = document.getElementById('confirmDelete');
+  const cancelDeleteButton = document.getElementById('cancelDelete');
+
+  deleteButton.addEventListener('click', function() {
+      confirmationPanel.style.display = 'block';
+  });
+
+  cancelDeleteButton.addEventListener('click', function() {
+      confirmationPanel.style.display = 'none';
+  });
+
+  confirmDeleteButton.addEventListener('click', function() {
+      // Code to delete the item goes here
+      confirmationPanel.style.display = 'none';
+      alert('Item deleted successfully.');
+  });
+</script>
+    <script>
+        function prepareDelete(button) {
+            var prodid = button.parentNode.parentNode.querySelector("td:first-child").innerText;
+            document.getElementById("productId").value = prodid;
+            document.getElementById("deleteForm").submit();
+        }
+    </script>
+<script>
+    function togglePanel() {
+        var panel = document.getElementById("panel");
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
+</script>
+<script>
+    function editProfile(productId) {
+        var fields = document.querySelectorAll("#s td");
+        // Hide the Modifier button
+        fields.forEach(function(field) {
+            var input = document.createElement("input");
+            input.value = field.innerText;
+            field.innerHTML = "";
+            field.appendChild(input);
+        });
+        document.getElementById("modifier-button").style.display = "none";
+        var saveButton = document.createElement("button");
+        saveButton.textContent = "Save";
+        saveButton.type = "button";
+        saveButton.onclick = function() {
+            saveProfile(productId);
+        };
+        document.getElementById("profile-form").appendChild(saveButton);
+        var cancelButton = document.createElement("button");
+        cancelButton.textContent = "Cancel";
+        cancelButton.type = "button";
+        cancelButton.onclick = cancelEdit;
+        document.getElementById("profile-form").appendChild(cancelButton);
+        document.getElementById("productId").value = productId;
+    }
+
+    function saveProfile(productId) {
+        document.getElementById("deleteForm").submit();
+    }
+
+    function cancelEdit() {
+        location.reload();
+    }
+</script>
+</body>
+</html>
+</span>

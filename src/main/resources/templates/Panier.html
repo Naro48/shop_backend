@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Panier</title>
+    <link rel="stylesheet" type="text/css" href="acceuil.css">
+</head>
+<style type="text/css">
+    :root {
+        --background-gradient: linear-gradient(to right, #0B1480, #0B1480);
+    }
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        list-style: none;
+        text-decoration: none;
+    }
+    header{
+        position: absolute;
+        right: 0;
+        bottom: 600px;
+        z-index: 1000;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2px 10%;
+        background: linear-gradient(to top, #040A4C, #0B1480);
+        box-shadow: 0 1px 6px 0 rgb(32 33 56 / 5%);
+    }
+    body{
+        top:20px;
+        background: var(--background-gradient);
+    }
+    header img{
+        width:15%;
+    }
+    .logo{
+        font-size: 30px;
+        font-weight: 700;
+        color: white;
+    }
+    .navlist{
+        display: flex;
+    }
+    .navlist a {
+        color: white;
+        padding: 20px;
+        margin-left: 30px;
+        font-size: 15px;
+        font-weight: 600;
+        border-bottom: 2px;
+        transition: all .55s ease;
+    }
+    .navlist img {
+        width: 30px; /* Adjust the width of the image */
+        height: auto;
+        border-radius: 15px;/* Maintain aspect ratio */
+    }
+
+    .navlist a:hover{
+        border-bottom: 2px solid white;
+    }
+    #menu-icon{
+        color: white;
+        font-size: 35px;
+        z-index: 10001;
+        cursor: pointer;
+        display: none;
+    }
+    .hero{
+        height: 100%;
+        width: 100%;
+        min-height: 100vh;
+        background: var(--background-gradient);
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 4fr);
+        align-items: center;
+        gap: 2rem;
+    }
+    .hero2{
+        height: 100%;
+        width: 100%;
+        min-height: 100vh;
+        background: var(--background-gradient);
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: center;
+        gap: 2rem;
+    }
+    section{
+        padding: 0 10%;
+    }
+    .hero-img{
+        background-image: url('path/to/your/image.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .hero-img img {
+        animation: pulse 4s infinite;
+    }
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    .merged-img {
+        position: all;
+        bottom: 60;
+        left: 0;
+    }
+    .hero-text h1{
+    }
+    .hero-text p{
+        font-family: 'Rubik Doodle Shadow';
+        font-size: 15px;
+        line-height: 1;
+        color: white;
+        margin: 0 0 45px;
+        line-height: 1.5;
+    }
+    .hero-text a{
+        display: inline-block;
+        color: white;
+        border: 1px solid transparent;
+        padding: 12px 30px;
+        line-height: 1.4;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 30px;
+        text-transform: uppercase;
+        transition: all .55s ease;
+        letter-spacing: 2px;
+    }
+    .hero-text{
+        display: inline-black;
+        border: 1px solid transparent;
+        padding: 20px;
+        line-height: 1.4;
+        font-weight: 500;
+        border-radius: 30px;
+        transition: all .55s ease;
+    }
+    .hero-text h1{
+        position: absolute;
+        top: 70px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        font-size: 30px;
+    }
+    .hero-text a:hover{
+        background: transparent;
+        border: 1px solid white;
+        transform: translateX(8p);
+    }
+    #prod1 {
+        text-align: center;
+        padding: 1px;
+        margin-left: -20px;
+    }
+    #prod1:hover{
+        transform: scale(1.2);
+    }
+    .section-p1 {
+        background-color: transparent;
+    }
+    .pro-container {
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+        margin: 1px;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        border-radius: 20px;
+    }
+    .pro {
+        background-color: white;
+        padding: 20px;
+        border-radius: 19px;
+        box-shadow: 5 4px 8px rgba(0, 0, 0, 0.1);
+        width: 250px;
+    }
+    .pro img {
+        width: 100%;
+        border-radius: 8px;
+    }
+    .pro img:hover {
+        width: 100%;
+        border-radius: 8px;
+        animation: pulse 4s infinite;
+    }
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    .des {
+        margin-top: 10px;
+        text-align: left;
+    }
+    .des span {
+        color: #888;
+        font-size: 14px;
+    }
+    .des h5 {
+        margin: 5px 0;
+        font-size: 18px;
+        text-align: start;
+    }
+    .star {
+        color: #f8ce0b;
+        font-size: 24px;
+        display: flex;
+    }
+    .rating input {
+        display: none;
+    }
+    .rating label {
+        font-size: 19px;
+        color: #ccc;
+        cursor: pointer;
+        padding-right: 9px;
+    }
+    .rating {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .rating input:checked ~ label {
+        color: #ffcc00;
+    }
+    .btn{
+        display: inline-block;
+        padding: 14px 42px;
+        color: black;
+        border: 2px solid transparent;
+        transition: all .6s;
+        font-weight: 500;
+        font-size:15px;
+    }
+    .btn:hover{
+        transform: scale(0.9) translateY(-6px);
+        border-radius: 2px solid black;
+        background: transparent;
+    }
+    .fa-sharp.fa-solid.fa-cart-plus{
+        color: white;
+        background-color: #2ecc71;
+        border-radius: 50px;
+        width: 25px;
+        line-height: 23px;
+        height: 22px;
+        border: 1px solid;
+        position: relative;
+        left: 190px;
+        top: 23px;
+    }
+    h3{
+        text-align: left;
+        font-size: 15px;
+    }
+    .indicator{
+        width: 100%;
+        height: 100px;
+        border-bottom: 2px solid #e5e5e5;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .indicator ul li{
+        list-style: none;
+        padding: 20px;
+        margin: 10px;
+        float: left;
+        font-size: 20px;
+        border-radius: 35px;
+        color: white;
+    }
+    .indicator a{
+        color: white;
+        text-decoration: none;
+    }
+    .indicator .active{
+        color: white;
+    }
+    .indicator .active a{
+        color: white;
+        background-color: #3498db;
+        font-weight: bold;
+        border: 3px solid white;
+        border-radius: 90%;
+        padding: 10px;
+    }
+    #star1{
+        color: yellow;
+    }
+    .fa-arrow-right-from-bracket{
+        color: white;
+    }
+    .fa-user{
+        color: white;
+    }
+    h2 {
+        margin-top: -10px;
+        color: white;
+    }
+    .card {
+        width: fit-content;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 250px 0;
+        padding: 30px;
+        background-color: #f9f9f9;
+        margin-left: -900px;
+    }
+    .card h2 {
+        color: #333;
+        font-size: 20px;
+        margin-top: 0;
+    }
+    .card p {
+        color: #666;
+        font-size: 16px;
+    }
+    .add-complaint-button {
+        background-color: #2ecc71;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: flex;
+        align-items: center;
+    }
+    .add-complaint-icon {
+        margin-right: 5px;
+    }
+    .add-complaint-container {
+        position: absolute;
+        top: 210px;
+        right: 10%;
+    }
+    .complaint-form {
+        width: fit-content;
+        padding: 30px;
+        margin: 50px auto;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+    }
+    .complaint-form label {
+        margin-bottom: 10px;
+        display: block;
+        font-weight: bold;
+    }
+    .complaint-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .complaint-form input[type="submit"] {
+        background-color: #2ecc71;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .complaint-form input[type="submit"]:hover {
+        background-color: #27ae60;
+    }
+    .active{
+        text-decoration: underline;
+        color: white;
+    }
+    .confirm{
+
+    }
+</style>
+<body>
+<header>
+    <img class="logo" src="/logo.png">
+    <ul class="navlist">
+        <li><a href="/products/catalogue">Catalog</a></li>
+        <li><a href="">My Basket</a></li>
+        <li><a href="mydeliveries.html">My Pending deliveries</a></li>
+        <li><a href="mycomments.html">My comments</a></li>
+        <li><a href="mycomplaints.html">My complaints</a></li>
+        <li><img alt="hh" th:src="${session.authenticatedPhoto}" onclick="togglePanel()"></li>
+        <div id="panel" class="panel" style="display: none">
+            <p th:text="${session.authenticatedUsername}"></p>
+            <button style="background-color: blue">Account information</button>
+            <button><a href="/log/login">Log out</a></button>
+        </div>
+        <li><i class="fa-solid fa-arrow-right-from-bracket"></i></li>
+    </ul>
+    <div class="bx bx-menu" id="menu-icon"></div>
+</header>
+<section class="hero2">
+    <section id="prod1" class="section-p1" th:each="product : ${panier}" >
+        <div class="pro-container">
+            <div class="pro">
+                <div class="container">
+                    <div class="wrapper">
+                        <img th:src="${product.prod.photo}"/>
+                    </div>
+                </div>
+                <div class="des">
+                    <form action="/confirmOrder" method="post">
+                    <span th:text="${product.prod.categorie?.catname}"></span>
+                    <h5 th:text="${product.prod.label}"></h5>
+                    <h3 th:text="${product.prod.price}"></h3>
+                        <input type="hidden" name="customerName" th:value="${session.authenticatedUsername}" />
+                        <button class="confirm" onclick="confirmProduct('${product.prod.label}', ${product.prod.price})">Confirmer le produit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+</section>
+<script>
+    function confirmProduct(productName, price) {
+        const orderData = {
+            productName: productName,
+            price: price,
+            quantity: 1,
+            customerName: 'Username'  // Replace with actual username
+        };
+
+        fetch('/api/confirmOrder', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderData)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Order confirmed:', data);
+                // Redirect to the next page or update the UI accordingly
+            })
+            .catch(error => {
+                console.error('Error confirming order:', error);
+            });
+    }
+
+    function togglePanel() {
+        var panel = document.getElementById("panel");
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
+</script>
+</body>
+</html>

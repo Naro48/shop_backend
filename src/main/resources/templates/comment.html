@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Popup</title>
+    <style>
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+        .popup-content {
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            resize: none;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .comment {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<button id="openPopup">Add Comment</button>
+<div id="commentBox"></div>
+<div id="commentPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" id="closePopup">&times;</span>
+        <h2>Add Comment</h2>
+        <textarea id="commentInput" placeholder="Enter your comment here..."></textarea>
+        <button id="submitComment">Submit</button>
+    </div>
+</div>
+<script>
+    document.getElementById("openPopup").addEventListener("click", function() {
+        document.getElementById("commentPopup").style.display = "block";
+    });
+    document.getElementById("closePopup").addEventListener("click", function() {
+        document.getElementById("commentPopup").style.display = "none";
+    });
+    document.getElementById("submitComment").addEventListener("click", function() {
+        var comment = document.getElementById("commentInput").value;
+        console.log("Comment submitted:", comment);
+        document.getElementById("commentInput").value = "";
+        document.getElementById("commentPopup").style.display = "none";
+        var commentBox = document.getElementById("commentBox");
+        var newComment = document.createElement("div");
+        newComment.textContent = comment;
+        newComment.classList.add("comment");
+        commentBox.appendChild(newComment);
+    });
+</script>
+</body>
+</html>

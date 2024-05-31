@@ -1,0 +1,635 @@
+<span style="font-family: verdana, geneva, sans-serif;"><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+   <title>Dashboard | Accounts</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style type="text/css">
+  <span style="font-family: verdana, geneva, sans-serif;">
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  background: white;
+  background-image: url('/ecommerce.jpg');
+}
+nav{
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  width: 90px;
+  /* width: 280px; */
+ background: linear-gradient(to bottom left, red, white);
+  overflow: hidden;
+  transition: 1s;
+}
+nav:hover{
+  width: 280px;
+  transition: 1s;
+}
+
+.logo img{
+  width: 80px;
+  height: 80px;
+}
+.logo span{
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+a{
+  position: relative;
+  width: 280px;
+  font-size: 14px;
+  color: rgb(85, 83, 83);
+  display: table;
+  padding: 10px;
+}
+nav .fas{
+  position: relative;
+  width: 70px;
+  height: 40px;
+  top: 20px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+}
+.nav-item{
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+  color: white;
+}
+.nav-item:hover{
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+  color: red;
+}
+a:hover{
+  background: red;
+  color: white;
+}
+a:hover i{
+  color: white;
+  transition: 0.5s;
+}
+
+.logout{
+  position: absolute;
+  bottom: 0;
+}
+
+.container{
+  display: flex;
+  color: black;
+
+}
+.container a{
+  right: 40px;
+}
+
+/* MAin Section */
+.main{
+  position: relative;
+  padding: 20px;
+  width: 100%;
+}
+.main-top{
+  display: flex;
+  width: 100%;
+}
+.main-top i{
+  position: absolute;
+  right: 0;
+  margin: 10px 30px;
+  color: rgb(110, 109, 109);
+  cursor: pointer;
+}
+.main .users2{
+  display: flex;
+  width: 100%;
+}
+
+.main2{
+  position: relative;
+  padding: 5px;
+  width: 100%;
+}
+.main-top{
+  display: flex;
+  width: 100%;
+}
+.main-top i{
+  position: absolute;
+  right: 0;
+  margin: 10px 30px;
+  color: rgb(110, 109, 109);
+  cursor: pointer;
+}
+.main .users2{
+  display: flex;
+  width: 100%;
+}
+
+.users2 .card{
+  width: 39%;
+  margin: 10px;
+  background: #fff;
+  text-align: left;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+   background-image: url('/students.jpg');
+   height: 350px;
+}
+.users2 .card2{
+  width: 39%;
+  margin: 10px;
+  background: #fff;
+  text-align: left;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+   background-image: url('/furnitures.jpg');
+   height: 350px;
+}
+.users2 .card img{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.users2 .card h4{
+  text-transform: uppercase;
+}
+.users2 .card p{
+  font-size: 12px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+.users2 table{
+  margin: auto;
+}
+.users2 .per span{
+  padding: 5px;
+  border-radius: 10px;
+  background: rgb(223, 223, 223);
+}
+
+.table2 td input, select{
+  width:200px;
+  padding: 15px;
+  margin:30px;
+  border-radius: 10px;
+  border:3px solid red;
+}
+.table2 button{
+  width:200px;
+  padding: 10px;
+  margin:30px;
+  border-radius: 10px;
+  border:3px solid white;
+  color: white;
+  font-weight: bold;
+  background-color: red;
+  position: relative;
+  left: 140px;
+}
+.table2 td i{
+  right: 20px;
+}
+
+.users2 td{
+  font-size: 14px;
+  padding-right: 15px;
+}
+.users2 .card button{
+  width: 100%;
+  margin-top: 8px;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 10px;
+    background: red;
+  color: #fff;
+  border: 1px solid red;
+}
+
+.attendance{
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+.attendance-list{
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.table{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 15px;
+  min-width: 100%;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+}
+input {
+  width: 350px;
+}
+table thead tr{
+  color: #fff;
+  background: #FF0000
+;
+  text-align: left;
+  font-weight: bold;
+}
+.table th,
+.table td{
+  padding: 12px 15px;
+}
+.table tbody tr{
+  border-bottom: 1px solid red;
+}
+.table tbody tr:nth-of-type(odd){
+  background: #f3f3f3;
+}
+.table tbody tr:last-of-type{
+  border-bottom: 2px solid red;
+}
+.table button{
+  padding: 6px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: red;
+  color: white;
+  border: 1px solid red;
+  font-weight: bold;
+}
+.table button:hover{
+  background: red;
+  color: #fff;
+  transition: 0.5rem;
+}
+.fa-solid.fa-phone {
+  right: 20px;
+}
+  .main .users{
+      display: flex;
+      width: 100%;
+  }
+
+  .users .card{
+      width: 50%;
+      margin: 10px;
+      height: 100px;
+      background: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+      border-left: 5px solid #4169E1;
+  }
+  .users .card h1,h4{
+      text-align: left;
+  }
+
+  .users .card:hover{
+      background-color: red;
+      color: white;
+  }
+  .users .card img{
+      width: 140px;
+      height: 105px;
+  }
+
+  .users .card p{
+      font-size: 12px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+  }
+  .adding{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+  }
+  .users table{
+      margin:  auto;
+  }
+  .users .per span{
+      padding: 5px;
+      border-radius: 10px;
+      background: rgb(223, 223, 223);
+  }
+  .users td{
+      font-size: 14px;
+      padding-right: 15px;
+  }
+  .users .card button{
+      width: 100%;
+      margin-top: 8px;
+      padding: 7px;
+      cursor: pointer;
+      border-radius: 10px;
+      background: red;
+      color: #fff;
+      border: 1px solid red;
+  }
+  .mysection{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+  }
+  .comptRow img{
+      width:50px;
+      height: 50px;
+  }
+</span>
+</style>
+<body>
+  <div class="container">
+    <nav>
+<ul>
+        <a href="#" class="logo">
+          <img src="/logo.png">
+          <span class="nav-item">DASHBOARD</span>
+        </a>
+            <a href="dashboard_accounts.html">
+          <i class="fas fa-database"></i>
+          <span class="nav-item">Accounts</span>
+        </a>
+            <a href="dashboard_products.html">
+          <i class="fas fa-chart-bar"></i>
+          <span class="nav-item">Products</span>
+        </a>
+        <a href="dashboard_contact.html">
+          <i class="fas fa-comment"></i>
+          <span class="nav-item">Contact</span>
+        </a>
+        <a href="dashboard_analytics.html">
+          <i class="fas fa-database"></i>
+          <span class="nav-item">Analytics</span>
+        </a>
+         <a href="settings.html">
+          <i class="fas fa-cog"></i>
+          <span class="nav-item">Settings</span>
+        </a>
+
+        <a href="#">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Log out</span>
+        </a>
+      </ul>
+    </nav>
+
+
+
+    <section class="main">
+                <h2>ACCOUNTS PAGE</h2> <h4>Display,add and delete accounts easily</h4>
+              <div class="users">
+        <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${Student}"></span></h1>
+          <h4>Number of students</h4>
+        </div>
+        <div class="second">
+          <img src="/studentstotal.png">
+        </div>
+      </section>
+    </div>
+                         <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${Supplier}"></span></h1>
+          <h4>Number of suppliers</h4>
+        </div>
+        <div class="second">
+          <img src="/suppliertotal.png">
+        </div>
+      </section>
+    </div>
+                         <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${DeliveryMan}"></span></h1>
+          <h4>Number of delivery men</h4>
+        </div>
+        <div class="second">
+          <img src="/deliverymentotal.png">
+        </div>
+      </section>
+    </div>
+              </div>
+         <div class="users">
+        <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${Architecturstudents}"></span></h1>
+          <h4>Architecture students</h4>
+        </div>
+        <div class="second">
+          <img src="/archistudents.png">
+        </div>
+      </section>
+    </div>
+                         <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${CSstudents}"></span></h1>
+          <h4>CS students</h4>
+        </div>
+        <div class="second">
+          <img src="/csstudents.png">
+        </div>
+      </section>
+    </div>
+                         <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${Energystudents}"></span></h1>
+          <h4>Energy students</h4>
+        </div>
+        <div class="second">
+          <img src="/energystudents.png">
+        </div>
+      </section>
+    </div>
+              </div>
+         <div class="users">
+        <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${Automobilestudents}"></span></h1>
+          <h4>Automobile students</h4>
+        </div>
+        <div class="second">
+          <img src="/autostudents.png">
+        </div>
+      </section>
+    </div>
+                         <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${Aerospacestudents}"></span></h1>
+          <h4>Aerospace students</h4>
+        </div>
+        <div class="second">
+          <img src="/aerostudents.png">
+        </div>
+      </section>
+    </div>
+                         <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1><span th:text="${Medicinestudents}"></span></h1>
+          <h4>Medecine students</h4>
+        </div>
+        <div class="second">
+          <img src="/medecinestudents.png">
+        </div>
+      </section>
+    </div>
+
+              </div>
+
+      <section class="attendance">
+        <div class="attendance-list">
+          <h1>List of accounts</h1>
+             <form id="deleteForm" th:action="@{/comptes/delete}" method="post">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Full name</th>
+                <th>Field</th>
+                <th>Phone number</th>
+                <th>Email address</th>
+                <th>User Type</th>
+                <th>Image</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="compte : ${all}" class="compteRow">
+        <td th:text="${compte.id}"></td>
+        <td th:text="${compte.nom}"></td>
+        <td th:text="${compte.filiere}"></td>
+        <td th:text="${compte.phone}"></td>
+        <td th:text="${compte.email}"></td>
+        <td th:text="${compte.type}"></td>
+                  <td><button style="background-color: white"><img th:src="${compte.photo}"></button></td>
+
+                   <td>
+           <input type="hidden" id="compteId" name="id" />
+             <button onclick="prepareDelete(this)">Delete</button>
+            &nbsp;<button onclick="modifyRow(this)">suspend</button>
+        </td>
+              </tr>
+            </tbody>
+          </table>
+             </form>
+        </div>
+      </section>
+
+
+
+    <section class="main">
+      <div class="main-top">
+        &nbsp<h1 style="color: white;">CREATE ACCOUNTS FOR STUDENTS</h1>
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+        <h1 style="color: white;">CREATE ACCOUNTS FOR OTHERS</h1>
+        <h1>
+      </div>
+
+      <div class="users2">
+        <div class="card">
+          <div class="per">
+              <form th:action="@{/comptes/addcompteuser}" method="post">
+            <table class="table2">
+              <tr>
+                <td><input type="text" name="fullname" placeholder="Full name"></td>
+                <td><input type="text" name="emailadress" placeholder="Email address"></td>
+              </tr>
+              <tr>
+                <td><input type="text" name="username" placeholder="Username"></td>
+                <td><input type="text" name="password" placeholder="Password"></td>
+              </tr>
+                                         <tr>
+                <td><input type="text" name="phone" placeholder="Phone number"></td>
+                                <td><select name="field">
+                  <option value="" disabled selected>Field</option>
+                  <option value="option1">Architecture</option>
+                  <option value="option2">Computer science</option>
+                </select></td>
+              </tr>
+                <tr>
+                    <td><input type="text"name="photo" placeholder="Image link"></td>
+                </tr>
+ 
+            </table>
+                  <button>ggg</button>
+              </form>
+          </div>
+        </div>
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                <div class="card2">
+          <div class="per">
+              <form th:action="@{/comptes/addcompteforothers}" method="post">
+            <table class="table2">
+              <tr>
+                <td><input type="text"name="fullname" placeholder="Full name"></td>
+                <td><input type="text"name="emailadress" placeholder="Email address"></td>
+              </tr>
+                            <tr>
+                <td><input type="text" name="username" placeholder="Username"></td>
+                <td><input type="text"name="password" placeholder="Password"></td>
+              </tr>
+                                          <tr>
+             
+                <td><input type="text"name="phone" placeholder="Phone number"></td>
+                                                                    <td><select name="type">
+                  <option value="" disabled selected>Type</option>
+                  <option value="option1">Supplier</option>
+                  <option value="option2">DeliveryMan</option>
+                  <option value="option2">Admin</option>
+                </select></td>
+</tr>
+<tr>
+    <td><input type="text" name="photo" placeholder="Image link"></td>
+</tr>
+            </table>
+                    <button>StekStek</button>
+              </form>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    </section>
+  </div>
+
+</body>
+        <script>
+        function prepareDelete(button) {
+            var categoryId = button.parentNode.parentNode.querySelector("td:first-child").innerText;
+            document.getElementById("compteId").value = categoryId;
+            document.getElementById("deleteForm").submit();
+        }
+    </script>
+</html>
+</span>

@@ -1,0 +1,520 @@
+<span style="font-family: verdana, geneva, sans-serif;"><!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Customer's Orders </title>
+  <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style type="text/css">
+  <span style="font-family: verdana, geneva, sans-serif;">
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+  *{
+      margin: 0;
+      padding: 0;
+      outline: none;
+      border: none;
+      text-decoration: none;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+  }
+  body{
+      background: white;
+      background-image: url('/ecommerce.jpg');
+  }
+  nav{
+      position: sticky;
+      top: 0;
+      bottom: 0;
+      height: 100vh;
+      left: 0;
+      width: 90px;
+      background: linear-gradient(to bottom left, blue, white);
+      overflow: hidden;
+      transition: 1s;
+  }
+  nav:hover{
+      width: 280px;
+      transition: 1s;
+  }
+
+  .logo img{
+      width: 80px;
+      height: 80px;
+  }
+  .logo span{
+      font-weight: bold;
+      padding-left: 15px;
+      font-size: 18px;
+      text-transform: uppercase;
+  }
+  a{
+      position: relative;
+      width: 280px;
+      font-size: 14px;
+      color: rgb(85, 83, 83);
+      display: table;
+      padding: 10px;
+  }
+  nav .fas{
+      position: relative;
+      width: 70px;
+      height: 40px;
+      top: 20px;
+      font-size: 20px;
+      text-align: center;
+      color: white;
+  }
+  .nav-item{
+      position: relative;
+      top: 12px;
+      margin-left: 10px;
+      color: white;
+  }
+  .nav-item:hover{
+      position: relative;
+      top: 12px;
+      margin-left: 10px;
+      color: blue;
+  }
+  a:hover{
+      background: blue;
+      color: white;
+  }
+  a:hover i{
+      color: white;
+      transition: 0.5s;
+  }
+  .logout{
+      position: absolute;
+      bottom: 0;
+  }
+  .container{
+      display: flex;
+      color: black;
+  }
+  .container a{
+      right: 40px;
+  }
+  .main{
+      position: relative;
+      padding: 20px;
+      width: 100%;
+  }
+  .main-top{
+      display: flex;
+      width: 100%;
+  }
+  .main-top i{
+      position: absolute;
+      right: 0;
+      margin: 10px 30px;
+      color: rgb(110, 109, 109);
+      cursor: pointer;
+  }
+  .main .addprod{
+      display: flex;
+      width: 100%;
+  }
+  .main2{
+      position: relative;
+      padding: 5px;
+      width: 100%;
+  }
+  .main-top{
+      display: flex;
+      width: 100%;
+  }
+  .main-top i{
+      position: absolute;
+      right: 0;
+      margin: 10px 30px;
+      color: rgb(110, 109, 109);
+      cursor: pointer;
+  }
+  .main .addprod{
+      display: flex;
+      width: 100%;
+  }
+  .addprod .card{
+      width: 79%;
+      margin: 10px;
+      background: #fff;
+      text-align: left;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+      background-image: url('/addproduct.jpg');
+      height: 445px;
+  }
+  .addcat .card{
+      width: 79%;
+      margin: 10px;
+      background: #fff;
+      text-align: left;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+      background-image: url('/addproduct.jpg');
+      height: 445px;
+  }
+  .addprod .card2{
+      width: 39%;
+      margin: 10px;
+      background: #fff;
+      text-align: left;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+      background-image: url('/furnitures.jpg');
+      height: 350px;
+  }
+  .addprod .card img{
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+  }
+  .addprod button{
+  }
+  .addprod .card h4{
+      text-transform: uppercase;
+  }
+  .addprod .card p{
+      font-size: 12px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+  }
+  .addprod table{
+      margin: auto;
+  }
+  .addprod .per span{
+      padding: 5px;
+      border-radius: 10px;
+      background: rgb(223, 223, 223);
+  }
+  .table2 td input, select, textarea{
+      width:200px;
+      padding: 15px;
+      margin:30px;
+      border-radius: 10px;
+      border:3px solid blue;
+  }
+  .table2 button{
+      width:200px;
+      padding: 10px;
+      margin:30px;
+      border-radius: 10px;
+      border:3px solid white;
+      color: white;
+      font-weight: bold;
+      background-color: blue;
+      position: relative;
+      left: 140px;
+  }
+  .table2 td i{
+      right: 20px;
+  }
+
+  .addprod td{
+      font-size: 14px;
+      padding-right: 15px;
+  }
+  .addprod .card button{
+      width: 540px;
+      font-weight: bold;
+      margin-top: 8px;
+      padding: 9px;
+      cursor: pointer;
+      border-radius: 10px;
+      background: white;
+      color: blue;
+      border: 2px solid blue;
+  }
+  .addprod .card button:hover{
+      width: 540px;
+      margin-top: 8px;
+      padding: 9px;
+      cursor: pointer;
+      border-radius: 10px;
+      background: blue;
+      color: white;
+      border: 1px solid blue;
+  }
+  .attendance{
+      margin-top: 20px;
+      text-transform: capitalize;
+  }
+  .attendance-list{
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  }
+  .attendance-list2{
+      width: 25%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  }
+  .table{
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 15px;
+      min-width: 100%;
+      overflow: hidden;
+      border-radius: 5px 5px 0 0;
+  }
+  input {
+      width: 350px;
+  }
+  table thead tr{
+      color: #fff;
+      background: blue;
+  ;
+      text-align: left;
+      font-weight: bold;
+  }
+  .table th,
+  .table td{
+      padding: 12px 15px;
+  }
+  .table tbody tr{
+      border-bottom: 1px solid blue;
+  }
+  .table tbody tr:nth-of-type(odd){
+      background: #f3f3f3;
+  }
+  .table tbody tr:last-of-type{
+      border-bottom: 2px solid blue;
+  }
+  .table button{
+      padding: 6px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      background: blue;
+      color: white;
+      border: 1px solid blue;
+      font-weight: bold;
+  }
+  .addcat button{
+      width:200px;
+      padding: 15px;
+      margin:30px;
+      border-radius: 10px;
+      border:3px solid blue;
+  }
+  .table button:hover{
+      background: blue;
+      color: #fff;
+      transition: 0.5rem;
+  }
+  .fa-solid.fa-phone {
+      right: 20px;
+  }
+  .main .users{
+      display: flex;
+      width: 100%;
+  }
+  .users .card{
+      width: 50%;
+      margin: 10px;
+      height: 100px;
+      background: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+      border-left: 5px solid #4169E1;
+  }
+  .users .card h1,h4{
+      text-align: left;
+  }
+  .users .card:hover{
+      background-color: blue;
+      color: white;
+  }
+  .users .card img{
+      width: 120px;
+      height: 100px;
+  }
+  .users .card p{
+      font-size: 12px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+  }
+  .adding{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+  }
+  .users table{
+      margin:  auto;
+  }
+  .users .per span{
+      padding: 5px;
+      border-radius: 10px;
+      background: rgb(223, 223, 223);
+  }
+  .users td{
+      font-size: 14px;
+      padding-right: 15px;
+  }
+  .users .card button{
+      width: 100%;
+      margin-top: 8px;
+      padding: 7px;
+      cursor: pointer;
+      border-radius: 10px;
+      background: blue;
+      color: #fff;
+      border: 1px solid blue;
+  }
+  #yes{
+      background-color: green;
+      border-color: green;
+  }
+  #no{
+      background-color: red;
+  }
+  .mysection{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+  }
+  .productRow img{
+      width:50px;
+      height: 50px;
+  }
+</style>
+<body>
+  <div class="container">
+    <section class="main">
+<div class="attendance-list">
+    <h1>List of orders to deliver: </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>GSM</th>
+                <th>DELIVERING LOCATION</th>
+                <th>DELIVERING DATE</th>
+                <th>METHOD OF PAYMENT</th>
+                <th>Delivery Status</th>
+                <th>Is it delivered?</th>
+            </tr>
+        </thead>
+      <tbody>
+    <tr th:each="commande : ${all}" class="productRow">
+        <td th:text="${commande.compte?.username}"></td>
+        <td th:text="${commande.compte?.phone}"></td>
+        <td th:text="${commande.lieuLivraison}"></td>
+        <td th:text="${commande.dateLivraison}"></td>
+        <td th:text="${commande.méthodePaiement}"></td>
+        <td>
+             <button id="yes" type="submit" >Delivered</button>
+            &nbsp;<button id="no" onclick="modifyRow(this)">Not delivered</button>
+        </td>
+        <td th:text="${commande.delivered}"></td>
+    </tr>
+    </tbody>
+    </table>
+    </form>
+</div>
+    </section>
+    </section>
+  </div>
+<script>
+  function validateImageSize(input) {
+      const file = input.files[0];
+      const maxSizeInBytes = 500 * 500;
+      if (file && file.size > maxSizeInBytes) {
+          alert("Please select an image smaller than 1MB.");
+          input.value = "";
+      }
+  }
+</script>
+<script th:inline="javascript">
+  function showImage(imageUrl) {
+      var imageWindow = window.open("", "_blank");
+      imageWindow.document.body.innerHTML = "<img src='" + imageUrl + "' alt='Image'>";
+  }
+</script>
+<script>
+  function modifyRow(button) {
+      var row = button.closest('tr');
+      var cells = row.getElementsByTagName('td');
+      for (var i = 0; i < cells.length - 1; i++) {
+          var cell = cells[i];
+          var currentValue = cell.textContent.trim();
+          if (i !== cells.length - 2) {
+              cell.innerHTML = "<input type='text' value='" + currentValue + "' style='width: 100px;'>";
+          } else {
+              cell.innerHTML = "<input type='file' accept='image/*' onchange='validateImageSize(this)'>";
+          }
+      }
+      var actionCell = row.querySelector('td:last-child');
+      actionCell.innerHTML = "<button onclick='saveRow(this)'>Save</button>&nbsp;<button onclick='cancelRow(this)'>Cancel</button>";
+  }
+
+  function saveRow(button) {
+      var row = button.closest('tr');
+      var cells = row.getElementsByTagName('td');
+      for (var i = 0; i < cells.length - 1; i++) {
+          var cell = cells[i];
+          var input = cell.querySelector('input');
+          var newValue = input.value;
+          if (i !== cells.length - 2) {
+              cell.innerHTML = newValue;
+          } else {
+              cell.innerHTML = "<img src='" + newValue + "' alt='Image'>";
+          }
+      }
+      var actionCell = row.querySelector('td:last-child');
+      actionCell.innerHTML = "<button onclick='modifyRow(this)'>Delete</button>";
+      actionCell.innerHTML += "&nbsp;<button onclick='deleteRow(this)'>Modify</button>";
+  }
+  function cancelRow(button) {
+      var row = button.closest('tr');
+      var cells = row.getElementsByTagName('td');
+      for (var i = 0; i < cells.length - 1; i++) {
+          var cell = cells[i];
+          var input = cell.querySelector('input');
+          var currentValue = input.getAttribute('value');
+          if (i !== cells.length - 2) {
+              cell.innerHTML = currentValue;
+          } else {
+              cell.innerHTML = "<img src='" + currentValue + "' alt='Image'>";
+          }
+      }
+      var actionCell = row.querySelector('td:last-child');
+      actionCell.innerHTML = "<button onclick='modifyRow(this)'>Modify</button>";
+  }
+</script>
+<script>
+    function applyCategoryFilter() {
+        var select = document.getElementById("categorySelect");
+        var categoryId = select.value;
+        var rows = document.getElementsByClassName("productRow");
+
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var categoryCell = row.getElementsByTagName("td")[5];
+            var category = categoryCell.textContent.trim();
+            if (categoryId === "" || categoryId === category) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        }
+    }
+</script>
+  <script th:if="${errorMessage}">
+        alert([[${errorMessage}]]);
+    </script>
+</body>
+</html>
+</span>

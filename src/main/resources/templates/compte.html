@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier le Profil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            color: #d9534f; /* Rouge */
+            margin-bottom: 30px;
+        }
+        .profile-picture-container {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 0 auto;
+        }
+        .change-picture-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+        .profile-picture-container:hover .change-picture-button {
+            display: block;
+        }
+        .change-picture-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        label i {
+            margin-right: 10px;
+            color: #d9534f;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #d9534f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Modifier le Profil</h1>
+    <div class="profile-picture-container">
+        <img src="" alt="Profile Picture" class="profile-picture">
+        <label for="profile-picture-input" class="change-picture-button"><i class="fas fa-camera"></i></label>
+        <input type="file" id="profile-picture-input" style="display: none;">
+    </div>
+    <form id="profile-form" method="GET">
+        <input type="text" name="username" value="issam">
+        <table th:each="compte : ${comptes}" id="s">
+            <tr>
+                <th><i class="fas fa-user"></i> Username</th>
+                <td th:text="${compte.username}">Nom d'utilisateur</td>
+            </tr>
+            <tr>
+                <th><i class="fas fa-envelope"></i> Email</th>
+                <td th:text="${compte.email}">Adresse email</td>
+            </tr>
+            <tr>
+                <th><i class="fas fa-phone" style="transform: rotate(180deg);"></i> Phone</th>
+                <td th:text="${compte.phone}">Numéro de téléphone</td>
+            </tr>
+            <tr>
+                <th><i class="fas fa-lock"></i> Password</th>
+                <td th:text="${compte.password}">Mot de passe</td>
+            </tr>
+            <tr>
+                <th><i class="fas fa-user"></i> Type</th>
+                <td th:text="${compte.type}">Type d'utilisateur</td>
+            </tr>
+            <tr>
+                <th><i class="fas fa-book"></i> Filière</th>
+                <td th:text="${compte.filiere}">Filière</td>
+            </tr>
+        </table>
+        <button type="button" id="modifier-button" onclick="editProfile()">Modifier</button>
+    </form>
+</div>
+</body>
+<script>
+    function editProfile() {
+        var fields = document.querySelectorAll("#s td");
+        // Hide the Modifier button
+        fields.forEach(function(field) {
+            var input = document.createElement("input");
+            input.value = field.innerText;
+            field.innerHTML = "";
+            field.appendChild(input);
+        });
+        document.getElementById("modifier-button").style.display = "none";
+        var saveButton = document.createElement("button");
+        saveButton.textContent = "Save";
+        saveButton.type = "button";
+        saveButton.onclick = saveProfile;
+        document.getElementById("profile-form").appendChild(saveButton);
+        var cancelButton = document.createElement("button");
+        cancelButton.textContent = "Cancel";
+        cancelButton.type = "button";
+        cancelButton.onclick = cancelEdit;
+        document.getElementById("profile-form").appendChild(cancelButton);
+    }
+    function saveProfile() {
+        console.log("Profile saved!");
+    }
+    function cancelEdit() {
+        location.reload();
+    }
+</script>
+</body>
+</html>
+

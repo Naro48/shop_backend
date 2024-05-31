@@ -1,0 +1,846 @@
+<span style="font-family: verdana, geneva, sans-serif;">
+    <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+   <title>Dashboard | Analytics</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style type="text/css">
+  <span style="font-family: verdana, geneva, sans-serif;">
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  background: white;
+  background-image: url('/ecommerce.jpg');
+}
+nav{
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  width: 90px;
+  /* width: 280px; */
+ background: linear-gradient(to bottom left, red, white);
+  overflow: hidden;
+  transition: 1s;
+}
+nav:hover{
+  width: 280px;
+  transition: 1s;
+}
+
+.logo img{
+  width: 80px;
+  height: 80px;
+}
+.logo span{
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+a{
+  position: relative;
+  width: 280px;
+  font-size: 14px;
+  color: rgb(85, 83, 83);
+  display: table;
+  padding: 10px;
+}
+nav .fas{
+  position: relative;
+  width: 70px;
+  height: 40px;
+  top: 20px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+}
+.nav-item{
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+  color: white;
+}
+.nav-item:hover{
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+  color: red;
+}
+a:hover{
+  background: red;
+  color: white;
+}
+a:hover i{
+  color: white;
+  transition: 0.5s;
+}
+
+.logout{
+  position: absolute;
+  bottom: 0;
+}
+
+.container{
+  display: flex;
+  color: black;
+
+}
+.container a{
+  right: 40px;
+}
+
+/* MAin Section */
+.main{
+  position: relative;
+  padding: 20px;
+  width: 100%;
+}
+.main-top{
+  display: flex;
+  width: 100%;
+}
+.main-top i{
+  position: absolute;
+  right: 0;
+  margin: 10px 30px;
+  color: rgb(110, 109, 109);
+  cursor: pointer;
+}
+.main .users{
+  display: flex;
+  width: 100%;
+}
+
+.main2{
+  position: relative;
+  padding: 5px;
+  width: 100%;
+}
+.main-top{
+  display: flex;
+  width: 100%;
+}
+.main-top i{
+  position: absolute;
+  right: 0;
+  margin: 10px 30px;
+  color: rgb(110, 109, 109);
+  cursor: pointer;
+}
+.main .users{
+  display: flex;
+  width: 100%;
+}
+
+.users .card{
+  width: 29%;
+  margin: 10px;
+  height: 100px;
+  background: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #4169E1;
+}
+.users .card h1,h4{
+  text-align: left;
+}
+
+.users .card:hover{
+  background-color: red;
+  color: white;
+  }
+.users .card img{
+  width: 120px;
+  height: 100px;
+}
+
+.users .card p{
+  font-size: 12px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+.users table{
+  margin:  auto;
+}
+.users .per span{
+  padding: 5px;
+  border-radius: 10px;
+  background: rgb(223, 223, 223);
+}
+.users td{
+  font-size: 14px;
+  padding-right: 15px;
+}
+.users .card button{
+  width: 100%;
+  margin-top: 8px;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 10px;
+    background: red;
+  color: #fff;
+  border: 1px solid red;
+}
+
+.attendance{
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+.attendance-list{
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.table{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 15px;
+  min-width: 100%;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+}
+table thead tr{
+  color: #fff;
+  background: #FF0000
+;
+  text-align: left;
+  font-weight: bold;
+}
+.table th,
+.table td{
+  padding: 12px 15px;
+}
+.table tbody tr{
+  border-bottom: 1px solid red;
+}
+.table tbody tr:nth-of-type(odd){
+  background: #f3f3f3;
+}
+.table tbody tr:last-of-type{
+  border-bottom: 2px solid red;
+}
+.table button{
+  padding: 6px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: red;
+  color: white;
+  border: 1px solid red;
+  font-weight: bold;
+}
+.table button:hover{
+  background: red;
+  color: #fff;
+  transition: 0.5rem;
+}
+.mysection{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+.chart{
+      width: 600px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      margin: 10px;
+      background-color: white;
+      height: 300px;
+}
+.pieChart{
+        width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      margin: 10px;
+      background-color: white;
+      height: 300px;
+}
+#quantity, #rating{
+  color: red;
+}
+.charts{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+}
+    #scatterChartContainer {
+      width: 600px;
+      height: 400px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+</span>
+</style>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+ <a href="#" class="logo">
+          <img src="/logo.png">
+          <span class="nav-item">DASHBOARD</span>
+        </a>
+            <a href="/comptes/count">
+          <i class="fas fa-database"></i>
+          <span class="nav-item">Accounts</span>
+        </a>
+            <a href="/products/products">
+          <i class="fas fa-chart-bar"></i>
+          <span class="nav-item">Products</span>
+        </a>
+        <a href="dashboard_contact.html">
+          <i class="fas fa-comment"></i>
+          <span class="nav-item">Contact</span>
+        </a>
+        <a href="/products/analytics">
+          <i class="fas fa-database"></i>
+          <span class="nav-item">Analytics</span>
+        </a>
+         <a href="">
+          <i class="fas fa-cog"></i>
+          <span class="nav-item">Settings</span>
+        </a>
+
+        <a href="/log/login">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Log out</span>
+        </a>
+      </ul>
+    </nav>
+
+
+    <section class="main">
+<h2 style="color: white">ANALYTICS PAGE</h2> <h4 style="color: white">Discover fluidly crucial products' information</h4>
+     <section>
+      <div class="users">
+            <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1 th:text="${CA}+ ' MAD '"></h1>
+          <h4>Net Profit</h4>
+        </div>
+        <div class="second">
+          <img src="/arrowgain.png">
+        </div>
+      </section>
+    </div>
+                     <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1 th:text="${twentythree}+ ' MAD '"></h1>
+          <h4>Net Profit (2023)</h4>
+        </div>
+        <div class="second">
+          <img src="/arrowgain.png">
+        </div>
+      </section>
+    </div>
+                     <div class="card">
+          <section class="mysection">
+            <div class="first">
+          <h1 th:text="${twentyfour}+ ' MAD '"></h1>
+          <h4>Net Profit (2024)</h4>
+        </div>
+        <div class="second">
+          <img src="/arrowgain.png">
+        </div>
+      </section>
+    </div>
+
+      </div>
+    </section>
+<section class="charts">
+    <div class="chart">
+  <canvas id="quantity"></canvas>
+</div>
+    <div class="chart">
+  <canvas id="rating"></canvas>
+</div>
+<div class="piechart">
+  <canvas id="myPieChart"></canvas>
+</div>
+</section>
+       <section class="charts">
+<div class="chart">
+  <canvas id="command"></canvas>
+</div>
+        <div class="piechart">
+  <canvas id="usersPerField"></canvas>
+</div>
+</section>
+        <section class="charts">
+            <div class="chart">
+                <canvas id="benefitsChart"></canvas>
+            </div>
+        </section>
+    </section>
+  </div>
+</body>
+</html>
+
+<script th:inline="javascript">
+  // Get data from Thymeleaf attributes
+  var archiCount = /*[[${archi}]]*/ '0'; // Default value if not provided
+  var autoCount = /*[[${auto}]]*/ '0'; // Default value if not provided
+  var allCount = /*[[${nocat}]]*/ '0'; // Default value if not provided
+  var aeroCount = /*[[${aero}]]*/ '0'; // Default value if not provided  // Default value if not provided
+  var energyCount = /*[[${energie}]]*/ '0'; // Default value if not provided
+  var csCount = /*[[${cs}]]*/ '0'; // Default value if not provided
+  var dentistryCount = /*[[${dentistry}]]*/ '0'; // Default value if not provided
+  var medecineCount = /*[[${medecine}]]*/ '0'; // Default value if not provided
+
+  // Sample data for the pie chart
+  var data = {
+      labels: ['Architecture', 'Automobile', 'Aerospace', 'Computer science', 'All', 'Dentistry', 'Medecine', 'Energy'],
+      datasets: [{
+          label: 'Number of products',
+          data: [archiCount, autoCount, aeroCount, csCount, allCount, dentistryCount, medecineCount, energyCount],
+          backgroundColor: [
+              'red',
+              '#ADFF2F',
+              'blue',
+              'white',
+              'black',
+              'orange',
+              'yellow',
+              'cyan'
+          ],
+          borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+          ],
+          borderWidth: 1
+      }]
+  };
+
+  var options = {
+      plugins: {
+          title: {
+              display: true,
+              text: 'Products per category',
+              font: {
+                  size: 25,
+                  weight: 'bold',
+                  family: 'Bradley Hand'
+              },
+              align: 'left',
+              color: 'red'
+          }
+      }
+  };
+
+  var ctx = document.getElementById('myPieChart').getContext('2d');
+
+  var myPieChart = new Chart(ctx, {
+      type: 'pie',
+      data: data,
+      options: options
+  });
+</script>
+
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  // Get data from Thymeleaf attributes
+  var archiCount = /*[[${Architecturstudents}]]*/ '0'; // Default value if not provided
+  var autoCount = /*[[${Automobilestudents}]]*/ '0'; // Default value if not provided
+  var aeroCount = /*[[${Aerospacestudents}]]*/ '0'; // Default value if not provided
+  var energyCount = /*[[${Energystudents}]]*/ '0'; // Default value if not provided
+  var csCount = /*[[${CSstudents}]]*/ '0'; // Default value if not provided
+  var medecineCount = /*[[${Medicinestudents}]]*/ '0'; // Default value if not provided
+
+  // Sample data for the pie chart
+  var data = {
+      labels: ['Architecture', 'Automobile', 'Aerospace', 'Computer science', 'Medecine', 'Energy'],
+      datasets: [{
+          label: 'Number of users',
+          data: [archiCount, autoCount, aeroCount, csCount, medecineCount, energyCount],
+          backgroundColor: [
+              'red',
+              '#ADFF2F',
+              'blue',
+              'white',
+              'black',
+              'orange',
+          ],
+          borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+          ],
+          borderWidth: 1
+      }]
+  };
+
+  var options = {
+      plugins: {
+          title: {
+              display: true,
+              text: 'Users per field',
+              font: {
+                  size: 25,
+                  weight: 'bold',
+                  family: 'Bradley Hand'
+              },
+              align: 'left',
+              color: 'red'
+          }
+      }
+  };
+
+  var ctx = document.getElementById('usersPerField').getContext('2d');
+
+  var myPieChart = new Chart(ctx, {
+      type: 'pie',
+      data: data,
+      options: options
+  });
+  /*]]>*/
+</script>
+
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  // Get data from Thymeleaf attributes
+  var productNames = /*[[${productNames}]]*/ [];
+  var productRatings = /*[[${productRatings}]]*/ [];
+
+  // Create an array of objects to store both product names and ratings
+  var data = [];
+  for (var i = 0; i < productNames.length; i++) {
+      data.push({name: productNames[i], rating: productRatings[i]});
+  }
+
+  // Sort the data array based on ratings in descending order
+  data.sort(function(a, b) {
+      return b.rating - a.rating;
+  });
+
+  // Extract sorted product names and ratings
+  var sortedProductNames = data.map(function(item) { return item.name; });
+  var sortedProductRatings = data.map(function(item) { return item.rating; });
+
+  // Data for the bar chart
+  var chartData = {
+      labels: sortedProductNames,
+      datasets: [{
+          label: 'Rating',
+          data: sortedProductRatings,
+          backgroundColor: 'red', // Change color here
+          borderColor: 'white', // Change color here
+          borderWidth: 1
+      }]
+  };
+
+  var options = {
+      scales: {
+          y: {
+              beginAtZero: true,
+              title: {
+                  display: true,
+                  text: 'Rating'
+              }
+          },
+          x: {
+              display: false, // Hide x-axis labels
+              title: {
+                  display: false,
+                  text: 'Product'
+              }
+          }
+      },
+      plugins: {
+          title: {
+              display: true,
+              text: 'Best Rated Products',
+              font: {
+                  size: 25,
+                  weight: 'bold',
+                  family: 'Bradley Hand'
+              },
+              align: 'left',
+              color: 'red'
+          },
+          tooltip: {
+              callbacks: {
+                  label: function(context) {
+                      return context.dataset.label + ': ' + context.formattedValue;
+                  }
+              }
+          }
+      }
+  };
+
+  var ctx = document.getElementById('rating').getContext('2d');
+
+  var myBarChart = new Chart(ctx, {
+      type: 'bar',
+      data: chartData,
+      options: options
+  });
+
+  // Increase bar thickness
+  myBarChart.options.plugins.title.display = false;
+  myBarChart.options.scales.x.categoryPercentage = 0.9;
+  myBarChart.options.scales.x.barPercentage = 0.9;
+  /*]]>*/
+</script>
+
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  // Get data from Thymeleaf attributes
+  var productNames = /*[[${productNames}]]*/ [];
+  var productQuantity = /*[[${productQuantity}]]*/ [];
+
+  // Create an array of objects to store both product names and ratings
+  var data = [];
+  for (var i = 0; i < productNames.length; i++) {
+      data.push({name: productNames[i], rating: productQuantity[i]});
+  }
+
+  // Sort the data array based on ratings in descending order
+  data.sort(function(a, b) {
+      return b.rating - a.rating;
+  });
+
+  // Extract sorted product names and ratings
+  var sortedProductNames = data.map(function(item) { return item.name; });
+  var sortedProductQuantities = data.map(function(item) { return item.rating; });
+
+  // Data for the bar chart
+  var chartData = {
+      labels: sortedProductNames,
+      datasets: [{
+          label: 'Stock:',
+          data: sortedProductQuantities,
+          backgroundColor: 'red', // Change color here
+          borderColor: 'white', // Change color here
+          borderWidth: 1
+      }]
+  };
+
+  var options = {
+      scales: {
+          y: {
+              beginAtZero: true,
+              title: {
+                  display: true,
+                  text: 'Stock'
+              }
+          },
+          x: {
+              display: false, // Hide x-axis labels
+              title: {
+                  display: false,
+                  text: 'Product'
+              }
+          }
+      },
+      plugins: {
+          title: {
+              display: true,
+              text: 'Stock Per Product Product',
+              font: {
+                  size: 25,
+                  weight: 'bold',
+                  family: 'Bradley Hand'
+              },
+              align: 'left',
+              color: 'red'
+          },
+          tooltip: {
+              callbacks: {
+                  label: function(context) {
+                      return context.dataset.label + ': ' + context.formattedValue;
+                  }
+              }
+          }
+      }
+  };
+
+  var ctx = document.getElementById('quantity').getContext('2d');
+
+  var myBarChart = new Chart(ctx, {
+      type: 'bar',
+      data: chartData,
+      options: options
+  });
+
+  // Increase bar thickness
+  myBarChart.options.plugins.title.display = false;
+  myBarChart.options.scales.x.categoryPercentage = 0.9;
+  myBarChart.options.scales.x.barPercentage = 0.9;
+  /*]]>*/
+</script>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    // Get data from Thymeleaf attributes
+    var productNames = /*[[${accNames}]]*/ [];
+    var productRatings = /*[[${numOfCommands}]]*/ [];
+
+    // Create an array of objects to store both product names and ratings
+    var data = [];
+    for (var i = 0; i < productNames.length; i++) {
+        data.push({name: productNames[i], rating: productRatings[i]});
+    }
+
+    // Sort the data array based on ratings in descending order
+    data.sort(function(a, b) {
+        return b.rating - a.rating;
+    });
+
+    // Extract sorted product names and ratings
+    var sortedProductNames = data.map(function(item) { return item.name; });
+    var sortedProductRatings = data.map(function(item) { return item.rating; });
+
+    // Data for the bar chart
+    var chartData = {
+        labels: sortedProductNames,
+        datasets: [{
+            label: 'Number of commands',
+            data: sortedProductRatings,
+            backgroundColor: 'red', // Change color here
+            borderColor: 'white', // Change color here
+            borderWidth: 1
+        }]
+    };
+
+    var options = {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Commands'
+                },
+                ticks: {
+                    callback: function(value) {
+                        if (Number.isInteger(value)) {
+                            return value; // Display integer values as they are
+                        } else {
+                            return ''; // Display decimal values as empty string
+                        }
+                    }
+                }
+            },
+            x: {
+                display: false, // Hide x-axis labels
+                title: {
+                    display: false,
+                    text: 'Product'
+                }
+            }
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: 'Most Loyal Clients',
+                font: {
+                    size: 25,
+                    weight: 'bold',
+                    family: 'Bradley Hand'
+                },
+                align: 'left',
+                color: 'red'
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return context.dataset.label + ': ' + context.formattedValue;
+                    }
+                }
+            }
+        }
+    };
+
+    var ctx = document.getElementById('command').getContext('2d');
+
+    var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+        options: options
+    });
+
+    // Increase bar thickness
+    myBarChart.options.plugins.title.display = false;
+    myBarChart.options.scales.x.categoryPercentage = 0.9;
+    myBarChart.options.scales.x.barPercentage = 0.9;
+    /*]]>*/
+</script>
+
+<script th:inline="javascript">
+    // Retrieve data from Thymeleaf model attributes
+    var january = [[${january}]];
+    var february = [[${february}]];
+    var march = [[${march}]];
+    var april = [[${april}]];
+    var may = [[${may}]];
+    var june = [[${june}]];
+    var july = [[${july}]];
+    var august = [[${august}]];
+    var september = [[${september}]];
+    var october = [[${october}]];
+    var november = [[${november}]];
+    var december = [[${december}]];
+
+    // Chart data
+    var chartData = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        datasets: [{
+            label: 'Monthly Benefits',
+            data: [january, february, march, april, may, june, july, august, september, october, november, december],
+            backgroundColor: 'red', // Change color here
+            borderColor: 'white', // Change color here
+            borderWidth: 1
+        }]
+    };
+
+    // Chart options (customize as needed)
+    var chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+                gridLines: {
+                    display: false // Remove horizontal grid lines
+                }
+            }]
+        }
+    };
+
+    // Get the canvas element
+    var canvas = document.getElementById('benefitsChart').getContext('2d');
+
+    // Create the chart
+    var myChart = new Chart(canvas, {
+        type: 'bar', // Change to your desired chart type
+        data: chartData,
+        options: chartOptions
+    });
+</script>
+
+
+
+</span>

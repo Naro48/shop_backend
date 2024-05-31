@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="signup.css">
+  <link rel="stylesheet" href=""https://unpkg.com/boxicons@latest/css/boxicons.min.css>
+  <link href="https://cdn.jsdelivr.net/npm/remixion@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	list-style: none;
+	text-decoration: none;
+}
+
+header{
+  position: fixed;
+  right: 0;
+  bottom: 590px;
+  z-index: 1000;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 10%;
+  background: transparent;
+}
+
+header img{
+  width:15%;
+
+}
+.logo{
+	font-size: 30px;
+	font-weight: 700;
+	color: white;
+}
+.navlist{
+	display: flex;
+}
+.navlist a {
+	color: white;
+    margin-left: 60px;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px;
+    transition: all .55s ease;
+}
+
+.navlist a:hover{
+	border-bottom: 2px solid white;
+}
+
+#menu-icon{
+	color: white;
+	font-size: 35px;
+	z-index: 10001;
+	cursor: pointer;
+	display: none;
+}
+.hero{
+	height: 100%;
+	width: 100%;
+	min-height: 100vh;
+      background: linear-gradient(to right, #2ecc71, #3498db);
+    /* For webkit (Safari, Chrome) */
+    background: -webkit-linear-gradient(left, #2ecc71, #3498db);
+    /* For Mozilla Firefox */
+    background: -moz-linear-gradient(left, #2ecc71, #3498db);
+    /* For Internet Explorer 10+ */
+    background: -ms-linear-gradient(left, #2ecc71, #3498db);
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	align-items: center;
+	gap: 2rem;
+}
+
+section{
+	padding: 0 5%;
+	padding-top: 2%;
+}
+
+
+ img {
+      animation: pulse 4s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+.merged-img {
+  position: all;
+  bottom: 60;
+  left: 0;
+}
+.hero-text h1{
+	font-family: 'Permanent Marker', cursive;
+	font-size: 40px;
+	line-height: 1;
+	color: white;
+	margin: 0 0 45px;
+	    text-transform: uppercase;
+}
+.hero-text p{
+	font-family: 'Rubik Doodle Shadow';
+	font-size: 15px;
+	line-height: 1;
+	color: white;
+	margin: 0 0 45px;
+	line-height: 1.5;
+}
+.hero-text a{
+	display: inline-block;
+	color: white;
+	border: 1px solid transparent;
+	padding: 12px 30px;
+	line-height: 1.4;
+	font-size: 14px;
+	font-weight: 500;
+	border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease;
+    letter-spacing: 2px;
+}
+
+.hero-text{
+	display: inline-black;
+	color: white;
+	border: 1px solid transparent;
+    padding: 20px;
+    line-height: 1.4;
+    font-size: 14px
+    font-weight: 500;
+    border-radius: 30px;
+    transition: all .55s ease;
+}
+
+.hero-text a:hover{
+	background: transparent;
+	border: 1px solid white;
+	transform: translateX(8p);
+}
+
+.signup-form {
+  padding: 10px;
+  border-radius: 8px;
+  margin-right: 50px;
+}
+
+.signup-form h2 {
+  text-align: left;
+  margin-bottom: 10px;
+  color: #4d9559;
+}
+
+.input-group {
+  margin-bottom:10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 25px;
+  color: white;
+  font-weight: 20px;
+  font-size: 15px;
+
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: calc(100% - 22px);
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-color: #4d9559;
+}
+
+button[type="submit"] {
+  width: 96.5%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: white;
+  color: #3498db;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #2ecc71;
+  color: white;
+}
+</style>
+</head>
+<body>
+  <header>
+         <img class="logo" src="logo.png">
+
+    <ul class="navlist">
+      <li><a href="acceuil.html">Home</a></li>
+      <li><a id="button">Our products</a></li>
+      <li><a href="faq.jsp">FAQ & Support</a></li>
+      <li><a href="apropos.jsp">About us</a></li>
+    </ul>
+
+    <div class="bx bx-menu" id="menu-icon"></div>
+  </header>
+  <section class="hero">
+        <div class="hero-img">
+      <img src="img.png">
+    </div>
+        <div class="hero-text">
+  <form method="post" class="signup-form">
+    <div class="input-group">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="prenom" required>
+    </div>
+    <div class="input-group">
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="nom" required>
+    </div>
+    <div class="input-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+        <div class="input-group">
+        <label for="email">Mail address:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <button id="loginButton" type="submit" style="font-weight: bold;">Create account</button>
+</form>
+
+    </div>
+  </section>
+ <script>
+    window.onload = function() {
+      const images = ['img/food.png'];
+      const randomIndex = Math.floor(Math.random() * images.length);
+      const foodImage = document.getElementById('foodImage');
+      foodImage.src = images[randomIndex];
+    };
+  </script>
+  <audio id="myAudio" controls hidden>
+  <source src="alfhnia.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+</body>
+</html>
+
+    </div>
+  </section>
+ <script>
+    window.onload = function() {
+      const images = ['img/food.png'];
+      const randomIndex = Math.floor(Math.random() * images.length);
+      const foodImage = document.getElementById('foodImage');
+      foodImage.src = images[randomIndex];
+    };
+  </script>
+   <script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Get the audio element
+  var audioElement = document.getElementById("myAudio");
+  
+  // Get the login button
+  var loginButton = document.getElementById("loginButton");
+  
+  // Add click event listener to the login button
+  loginButton.addEventListener("click", function() {
+    // Play the audio
+    audioElement.play();
+  });
+});
+  </script>
+</body>
+</html>

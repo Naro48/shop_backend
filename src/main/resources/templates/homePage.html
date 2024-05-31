@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+    .wrapper{
+        width: 100%;
+        display:flex;
+        animation: slide 16s infinite;
+    }
+.container {
+    overflow: hidden;
+    top: 12%;
+    left: calc(100% - 85vmin);
+    position: absolute;
+}
+
+    img{
+        width: 100%;
+    }
+    @keyframes slide{
+        0%{
+            transform: translateX(0);
+        }
+        25%{
+            transform: translateX(0);
+        }
+        30%{
+            transform: translateX(-100%);
+        }
+        50%{
+            transform: translateX(-100%);
+        }
+                55%{
+            transform: translateX(-200%);
+        }
+        75%{
+            transform: translateX(-200%);
+        }
+                80%{
+            transform: translateX(-300%);
+        }
+                        100%{
+            transform: translateX(-300%);
+        }
+    }
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+header{
+  position: fixed;
+  right: 27px;
+  bottom: 570px;
+  z-index: 1000;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 10%;
+  background: transparent;
+}
+
+header img{
+  width:18%;
+  
+}
+.logo{
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+}
+.navlist{
+    display: flex;
+}
+.navlist a {
+    color: white;
+    margin-left: 60px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 2px;
+    transition: all .55s ease;
+}
+
+.navlist a:hover{
+    border-bottom: 2px solid white;
+}
+
+#menu-icon{
+    color: white;
+    font-size: 35px;
+    z-index: 10001;
+    cursor: pointer;
+    display: none;
+}
+.hero{
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+        background: linear-gradient(to right, #2ecc71, #3498db);
+    /* For webkit (Safari, Chrome) */
+    background: -webkit-linear-gradient(left, #2ecc71, #3498db);
+    /* For Mozilla Firefox */
+    background: -moz-linear-gradient(left, #2ecc71, #3498db);
+    /* For Internet Explorer 10+ */
+    background: -ms-linear-gradient(left, #2ecc71, #3498db);
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+section{
+    padding: 0 10%;
+}
+
+
+.hero-img{
+    background-image: url('path/to/your/image.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+    img {
+      animation: pulse 4s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+.merged-img {
+  position: all;
+  bottom: 60;
+  left: 0;
+}
+.hero-text h1{
+  font-family: Georgia, serif;
+    font-size: 30px;
+    line-height: 1;
+    color: white;
+    margin: 0 0 45px;
+        text-transform: uppercase;
+}
+.hero-text p{
+    font-family: 'Rubik Doodle Shadow';
+    font-size: 15px;
+    line-height: 1;
+    color: white;
+    margin: 0 0 45px;
+    line-height: 1.5;
+}
+.hero-text a{
+    display: inline-block;
+    color: white;
+    border: 1px solid transparent;
+    padding: 12px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease;
+    letter-spacing: 2px;
+}
+
+.hero-text{
+    display: inline-black;
+    color: white;
+    border: 1px solid transparent;
+    padding: 20px;
+    line-height: 1.4;
+    font-size: 14px
+    font-weight: 500;
+    border-radius: 30px;
+    transition: all .55s ease;
+}
+
+.hero-text a:hover{
+    background: transparent;
+    border: 1px solid white;
+    transform: translateX(8p);
+}
+</style>
+<body>
+  <header>
+     <img class="logo" src="img/logo.png">
+    <ul class="navlist">
+      <li><a href="homePage.html">Home</a></li>
+      <li><a id="button">Our products</a></li>
+      <li><a href="faq.jsp">FAQ & Support</a></li>
+      <li><a href="apropos.jsp">About us</a></li>
+    </ul>
+
+    <div class="bx bx-menu" id="menu-icon"></div>
+  </header>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>A little intro</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<a href="loginPage.html">L O G I N</a>
+    </div>
+
+<div class="container">
+    <div class="wrapper">
+        <img src="img/archi.png" alt="Image 1">
+        <img  src="img/nurse.png" alt="Image 2">
+        <img  src="img/archis.png" alt="Image 3">
+<img src="doctor.png" alt="Image 3">
+    </div>
+</div>
+</body>
+</html>
